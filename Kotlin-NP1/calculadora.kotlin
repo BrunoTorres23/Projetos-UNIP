@@ -1,0 +1,64 @@
+import java.util.Scanner
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+    var opcao: Int
+
+    // Laço de repetição para manter o programa em execução até que o usuário escolha sair
+    do {
+        // Exibe o menu principal
+        println("=== Calculadora da Lei de Ohm ===")
+        println("Escolha a grandeza a ser calculada:")
+        println("1. Calcular Tensão (V)")
+        println("2. Calcular Resistência (R)")
+        println("3. Calcular Corrente (I)")
+        println("4. Sair")
+        print("Opção: ")
+        opcao = scanner.nextInt()
+
+        // Processa a opção escolhida pelo usuário
+        when (opcao) {
+            1 -> calcV(scanner) // Chama a função para calcular a tensão
+            2 -> calcR(scanner) // Chama a função para calcular a resistência
+            3 -> calcI(scanner) // Chama a função para calcular a corrente
+            4 -> {
+                // Mensagem ao sair
+                println("Programa desenvolvido por Bruno Torres Almeida, RA: H52FDD5 encerrado.")
+            }
+            else -> println("Opção inválida. Tente novamente.") // Mensagem para opção inválida
+        }
+    } while (opcao != 4) // Continua no laço enquanto a opção não for "Sair"
+}
+
+// Função para calcular Tensão (V)
+fun calcV(scanner: Scanner) {
+    println("\n=== Calcular Tensão (V) ===")
+    print("Digite a corrente (I) em ampères: ")
+    val corrente = scanner.nextDouble() // Entrada da corrente
+    print("Digite a resistência (R) em ohms: ")
+    val resistencia = scanner.nextDouble() // Entrada da resistência
+    val tensao = corrente * resistencia // Cálculo da tensão
+    println("A tensão (V) é: $tensao volts\n") // Exibe o resultado
+}
+
+// Função para calcular Resistência (R)
+fun calcR(scanner: Scanner) {
+    println("\n=== Calcular Resistência (R) ===")
+    print("Digite a tensão (V) em volts: ")
+    val tensao = scanner.nextDouble() // Entrada da tensão
+    print("Digite a corrente (I) em ampères: ")
+    val corrente = scanner.nextDouble() // Entrada da corrente
+    val resistencia = tensao / corrente // Cálculo da resistência
+    println("A resistência (R) é: $resistencia ohms\n") // Exibe o resultado
+}
+
+// Função para calcular Corrente (I)
+fun calcI(scanner: Scanner) {
+    println("\n=== Calcular Corrente (I) ===")
+    print("Digite a tensão (V) em volts: ")
+    val tensao = scanner.nextDouble() // Entrada da tensão
+    print("Digite a resistência (R) em ohms: ")
+    val resistencia = scanner.nextDouble() // Entrada da resistência
+    val corrente = tensao / resistencia // Cálculo da corrente
+    println("A corrente (I) é: $corrente ampères\n") // Exibe o resultado
+}
