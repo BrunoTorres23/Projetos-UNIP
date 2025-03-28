@@ -1,3 +1,4 @@
+@file:JvmName("JDoodle")
 import java.util.Scanner
 
 fun main() {
